@@ -75,18 +75,6 @@ header{
     position: relative;
 }
 
-.cec-logo{
-    width: 46px;
-    height: 46px;
-    transition: 0.3s ease;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid rgba(186, 195, 105, 0.5);
-}
- 
- .cec-logo:hover{
-    transform: scale(1.1);
- }
 .logo:hover{
     transform: scale(1.1);
 }
@@ -314,21 +302,135 @@ span{
     }
 }
 
-.scrollToTop-btn{
-    z-index: 999;
+/* ── Auto Scroll Up Button ── */
+.scroll-to-top,
+.scrollToTop-btn {
     position: fixed;
-    background: #3a6cf4;
-    color: #fff;
-    width: 45px;
-    height: 45px;
-    right: 0;
-    bottom: 10px;
-    font-size: 22px;
-    text-align: center;
-    line-height: 45px;
-    border-radius: 3px;
+    bottom: 3.2rem;
+    right: 3.2rem;
+    width: 4.8rem;
+    height: 4.8rem;
+    border-radius: 50%;
+    background: rgba(18, 18, 18, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    color: #bac369;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-    pointer-events: none;
+    z-index: 999;
     opacity: 0;
-    transition: all 0.3s ease;
-  }
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(16px) scale(0.9);
+    transition: opacity 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+                transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+                visibility 0.35s,
+                background 0.25s ease,
+                color 0.25s ease,
+                border-color 0.25s ease,
+                box-shadow 0.25s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 0 0 15px rgba(186, 195, 105, 0.15);
+    padding: 0;
+    outline: none;
+}
+
+.scroll-to-top.visible,
+.scrollToTop-btn.visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+}
+
+.scroll-to-top:hover,
+.scrollToTop-btn:hover {
+    background: #bac369;
+    color: #0b0b0b;
+    border-color: #bac369;
+    transform: translateY(-4px) scale(1.08);
+    box-shadow: 0 8px 25px rgba(186, 195, 105, 0.45), 0 0 20px rgba(186, 195, 105, 0.3);
+}
+
+.scroll-to-top:focus-visible,
+.scrollToTop-btn:focus-visible {
+    outline: 2px solid #bac369;
+    outline-offset: 4px;
+}
+
+.scroll-to-top:active,
+.scrollToTop-btn:active {
+    transform: translateY(-1px) scale(0.96);
+}
+
+.scroll-to-top i,
+.scrollToTop-btn i {
+    font-size: 1.8rem;
+    position: relative;
+    z-index: 2;
+    transition: transform 0.25s ease;
+}
+
+.scroll-to-top:hover i,
+.scrollToTop-btn:hover i {
+    transform: translateY(-2px);
+}
+
+.scroll-to-top .scroll-progress-ring,
+.scrollToTop-btn .scroll-progress-ring {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.scroll-to-top .progress-ring-bg,
+.scrollToTop-btn .progress-ring-bg {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.12);
+    stroke-width: 2.5;
+    transition: stroke 0.25s ease;
+}
+
+.scroll-to-top .progress-ring-fill,
+.scrollToTop-btn .progress-ring-fill {
+    fill: none;
+    stroke: #bac369;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-dasharray: 125.66;
+    stroke-dashoffset: 125.66;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    transition: stroke-dashoffset 0.1s linear, stroke 0.25s ease;
+}
+
+.scroll-to-top:hover .progress-ring-bg,
+.scrollToTop-btn:hover .progress-ring-bg {
+    stroke: rgba(0, 0, 0, 0.2);
+}
+
+.scroll-to-top:hover .progress-ring-fill,
+.scrollToTop-btn:hover .progress-ring-fill {
+    stroke: #0b0b0b;
+}
+
+@media (max-width: 768px) {
+    .scroll-to-top,
+    .scrollToTop-btn {
+        bottom: 2rem;
+        right: 2rem;
+        width: 4.4rem;
+        height: 4.4rem;
+    }
+
+    .scroll-to-top i,
+    .scrollToTop-btn i {
+        font-size: 1.6rem;
+    }
+}

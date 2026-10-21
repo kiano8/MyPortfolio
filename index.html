@@ -179,10 +179,6 @@
                 </div>
             </div>
             <div class="aron-direct-info-col" data-reveal="fade-left">
-                <div class="aron-direct-badge">
-                    <img src="images/cec.jpg" alt="Cebu Eastern College" class="aron-direct-logo">
-                    <span class="aron-direct-badge-text">CEBU EASTERN COLLEGE</span>
-                </div>
                 <h2 class="aron-headline">LET'S CONNECT<br>DIRECTLY</h2>
                 <p class="aron-lead-text">
                     Whether you are starting a new project, exploring a collaboration, or simply looking to discuss an
@@ -347,6 +343,15 @@
         </div>
     </footer>
 
+    <!-- Auto Scroll Up Button -->
+    <button type="button" id="scrollToTopBtn" class="scroll-to-top" aria-label="Scroll to top" title="Scroll to top">
+        <i class="fa-solid fa-arrow-up"></i>
+        <svg class="scroll-progress-ring" viewBox="0 0 48 48" aria-hidden="true">
+            <circle class="progress-ring-bg" cx="24" cy="24" r="20" />
+            <circle class="progress-ring-fill" id="scrollProgressCircle" cx="24" cy="24" r="20" />
+        </svg>
+    </button>
+
     <script src="js/background.js"></script>
     <script>
         /* ── Smooth scroll-reveal via Intersection Observer ── */
@@ -406,6 +411,40 @@
                         stickyTitle.style.opacity = '0.95';
                     }
                 }, { passive: true });
+            }
+
+            /* ── Auto Scroll Up Button & Progress Ring ── */
+            const scrollBtn = document.getElementById('scrollToTopBtn');
+            const progressCircle = document.getElementById('scrollProgressCircle');
+            const circumference = 2 * Math.PI * 20; // 125.66
+
+            if (scrollBtn) {
+                const updateScrollState = () => {
+                    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+                    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+
+                    if (scrollTop > 260) {
+                        scrollBtn.classList.add('visible');
+                    } else {
+                        scrollBtn.classList.remove('visible');
+                    }
+
+                    if (progressCircle && docHeight > 0) {
+                        const progress = Math.min(Math.max(scrollTop / docHeight, 0), 1);
+                        const offset = circumference - (progress * circumference);
+                        progressCircle.style.strokeDashoffset = offset;
+                    }
+                };
+
+                window.addEventListener('scroll', updateScrollState, { passive: true });
+                updateScrollState();
+
+                scrollBtn.addEventListener('click', () => {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
             }
         })();
     </script>
