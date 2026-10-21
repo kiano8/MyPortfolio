@@ -1,0 +1,556 @@
+/* ==========================================================================
+   Aron Vale Replicated Contact & Editorial Footer Styles
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Manrope:wght@400;500;600;700&display=swap');
+
+/* --- Contact Section: Warm Architectural Light Canvas --- */
+.contact {
+    background-color: #f4f3ef;
+    color: #0a0a0a;
+    padding: 10rem 8% 12rem;
+    position: relative;
+    z-index: 2;
+    min-height: auto;
+    box-shadow: 0 -25px 60px rgba(0, 0, 0, 0.4);
+}
+
+/* ── 1. Upper Block: "LET'S CONNECT DIRECTLY" ── */
+.aron-direct-connect {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 7rem;
+    align-items: center;
+    margin-bottom: 10rem;
+}
+
+/* Portrait Image Wrap (Grayscale Architectural Editorial) */
+.aron-portrait-col {
+    width: 100%;
+}
+
+.aron-portrait-wrap {
+    width: 100%;
+    max-height: 600px;
+    aspect-ratio: 4 / 5;
+    background-color: #e5e4de;
+    overflow: hidden;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+.aron-portrait-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    filter: grayscale(100%) contrast(115%) brightness(96%);
+    transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.aron-portrait-wrap:hover .aron-portrait-img {
+    transform: scale(1.04);
+}
+
+/* Direct Contact Info */
+.aron-direct-info-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.aron-direct-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.4rem;
+    margin-bottom: 2.4rem;
+    padding: 0.6rem 1.8rem 0.6rem 0.8rem;
+    background: rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 5rem;
+    width: fit-content;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.aron-direct-badge:hover {
+    background: rgba(0, 0, 0, 0.07);
+    border-color: rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.aron-direct-logo {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(186, 195, 105, 0.85);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    transition: transform 0.3s ease;
+}
+
+.aron-direct-badge:hover .aron-direct-logo {
+    transform: rotate(8deg) scale(1.05);
+}
+
+.aron-direct-badge-text {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: 1.8px;
+    color: #1a1a1a;
+    text-transform: uppercase;
+}
+
+.aron-headline {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 7.2rem;
+    font-weight: 900;
+    line-height: 0.92;
+    letter-spacing: -1.5px;
+    text-transform: uppercase;
+    color: #0a0a0a;
+    margin-bottom: 2.8rem;
+}
+
+.aron-lead-text {
+    font-family: 'Manrope', sans-serif;
+    font-size: 1.65rem;
+    line-height: 1.75;
+    color: #1a1a1a;
+    font-weight: 500;
+    margin-bottom: 1.8rem;
+}
+
+.aron-sub-text {
+    font-family: 'Manrope', sans-serif;
+    font-size: 1.5rem;
+    line-height: 1.7;
+    color: #555555;
+    margin-bottom: 3.8rem;
+}
+
+.aron-meta-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.8rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
+    padding-top: 3.2rem;
+}
+
+.aron-meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.aron-meta-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.7rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: #777777;
+    text-transform: uppercase;
+}
+
+.aron-meta-value {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 3.4rem;
+    font-weight: 900;
+    line-height: 1.05;
+    color: #0a0a0a;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+    margin: 0;
+}
+
+.aron-meta-link {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 3.4rem;
+    font-weight: 900;
+    color: #0a0a0a;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+    display: inline-block;
+    transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.aron-meta-link:hover {
+    color: #7b832b;
+    transform: translateX(8px);
+}
+
+/* ── 2. Lower Block: "LET'S DISCUSS YOUR NEXT PROJECT" ── */
+.aron-inquiry-section {
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
+    padding-top: 8rem;
+}
+
+.aron-section-hero-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 7.6rem;
+    font-weight: 900;
+    line-height: 0.92;
+    letter-spacing: -1.5px;
+    text-transform: uppercase;
+    color: #0a0a0a;
+    margin-bottom: 5.5rem;
+}
+
+.aron-inquiry-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.25fr;
+    gap: 7rem;
+    align-items: start;
+}
+
+.aron-inquiry-copy {
+    font-family: 'Manrope', sans-serif;
+    font-size: 1.65rem;
+    line-height: 1.8;
+    color: #333333;
+}
+
+.aron-inquiry-copy p {
+    margin-bottom: 2rem;
+}
+
+/* ── Minimalist Inquiry Form ── */
+.aron-form-wrap form {
+    display: flex;
+    flex-direction: column;
+}
+
+.aron-field-group {
+    margin-bottom: 2.4rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.aron-field-group label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: #0a0a0a;
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+}
+
+.aron-field-group input,
+.aron-field-group select,
+.aron-field-group textarea {
+    width: 100%;
+    padding: 1.6rem 1.8rem;
+    background: #e8e7e1;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-family: 'Manrope', sans-serif;
+    font-size: 1.5rem;
+    color: #0a0a0a;
+    outline: none;
+    transition: all 0.25s ease;
+}
+
+.aron-field-group input:focus,
+.aron-field-group select:focus,
+.aron-field-group textarea:focus {
+    background: #ffffff;
+    border-color: #0a0a0a;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+}
+
+.aron-field-group textarea {
+    resize: vertical;
+    min-height: 140px;
+}
+
+.aron-select-wrap {
+    position: relative;
+}
+
+.aron-select-wrap select {
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%230A0A0A%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1.8rem center;
+    background-size: 1.1rem;
+    padding-right: 4rem;
+}
+
+/* Submit Button */
+.aron-submit-btn {
+    display: inline-block;
+    width: 240px;
+    padding: 1.8rem 2.8rem;
+    background: #0a0a0a;
+    color: #ffffff;
+    border: 1px solid #0a0a0a;
+    border-radius: 4px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.aron-submit-btn:hover {
+    background: #bac369;
+    color: #0a0a0a;
+    border-color: #bac369;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* ── 3. Footer: Aron Vale "LET'S TALK" Style ── */
+.aron-footer {
+    background: #000000;
+    color: #ffffff;
+    padding: 9rem 8% 4rem;
+    position: relative;
+    z-index: 2;
+}
+
+.aron-footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    padding-bottom: 4rem;
+    margin-bottom: 5.5rem;
+}
+
+.aron-footer-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11rem;
+    font-weight: 900;
+    line-height: 0.85;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+    color: #ffffff;
+    margin: 0;
+}
+
+.aron-footer-badge {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #bac369;
+    padding-top: 1.5rem;
+}
+
+.aron-footer-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1.2fr 1.5fr;
+    gap: 5rem;
+    margin-bottom: 7rem;
+}
+
+.aron-footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.aron-footer-col-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.7rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #777777;
+    margin-bottom: 1rem;
+}
+
+.aron-footer-val,
+.aron-footer-col p {
+    font-family: 'Manrope', sans-serif;
+    font-size: 1.55rem;
+    color: #cccccc;
+    margin: 0;
+    line-height: 1.7;
+}
+
+.aron-footer-col a {
+    color: #ffffff;
+    text-decoration: none;
+    font-family: 'Manrope', sans-serif;
+    font-size: 1.55rem;
+    transition: color 0.2s ease;
+}
+
+.aron-footer-col a:hover {
+    color: #bac369;
+}
+
+.aron-social-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    padding: 0;
+    margin: 0;
+}
+
+.aron-social-list a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    display: inline-block;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.aron-social-list a:hover {
+    color: #bac369;
+    transform: translateX(6px);
+}
+
+.aron-footer-nav-col {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.aron-footer-nav-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    align-items: flex-end;
+    padding: 0;
+    margin: 0;
+}
+
+.aron-footer-nav-links a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 1;
+    letter-spacing: -0.5px;
+    color: #ffffff;
+    text-decoration: none;
+    transition: transform 0.25s ease, color 0.25s ease;
+    display: inline-block;
+}
+
+.aron-footer-nav-links a:hover {
+    color: #bac369;
+    transform: translateX(-10px);
+}
+
+.aron-footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 3.5rem;
+    font-family: 'Manrope', sans-serif;
+    font-size: 1.3rem;
+    color: #777777;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.aron-built-tag {
+    color: #999999;
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+    .aron-direct-connect {
+        grid-template-columns: 1fr;
+        gap: 5rem;
+    }
+
+    .aron-portrait-wrap {
+        max-height: 480px;
+    }
+
+    .aron-headline,
+    .aron-section-hero-title {
+        font-size: 5.6rem;
+    }
+
+    .aron-inquiry-grid {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+    }
+
+    .aron-footer-title {
+        font-size: 8rem;
+    }
+
+    .aron-footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+    }
+
+    .aron-footer-nav-col {
+        grid-column: 1 / -1;
+        justify-content: flex-start;
+    }
+
+    .aron-footer-nav-links {
+        align-items: flex-start;
+    }
+
+    .aron-footer-nav-links a {
+        font-size: 3.8rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .contact {
+        padding: 7rem 6% 8rem;
+    }
+
+    .aron-headline,
+    .aron-section-hero-title {
+        font-size: 4.2rem;
+    }
+
+    .aron-meta-value,
+    .aron-meta-link {
+        font-size: 2.8rem;
+    }
+
+    .aron-footer {
+        padding: 7rem 6% 3.5rem;
+    }
+
+    .aron-footer-top {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .aron-footer-title {
+        font-size: 6.5rem;
+    }
+
+    .aron-footer-grid {
+        grid-template-columns: 1fr;
+        gap: 3.5rem;
+    }
+
+    .aron-footer-bottom {
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: flex-start;
+    }
+}

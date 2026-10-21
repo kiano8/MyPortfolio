@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Manrope:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/skill.css">
+    <link rel="stylesheet" href="css/work.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="icon" href="images/K.jpg">
+    <title>Portfolio Website</title>
+</head>
+
+<body>
+
+    <header>
+        <a href="#" class="logo">Kian</a>
+        <nav>
+            <a href="#"> Home</a>
+            <a href="#skills">Skills</a>
+            <a href="#work">Work</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Home -->
+    <section class="home">
+        <div class="home-img" data-reveal="zoom">
+            <img src="images/kian.png" alt="">
+        </div>
+        <div class="home-content" data-reveal="fade-left">
+            <h1>Hi, It's <span>Kian</span></h1>
+            <h3 class="typing-text">I'm a <span></span></h3>
+            <p>I'm a passionate developer and designer dedicated to creating meaningful digital experiences.
+                With a strong foundation in both front-end and back-end technologies, I love turning complex problems
+                into simple,
+                beautiful solutions.</p>
+            <div class="social-icons" data-stagger style="display:flex;flex-wrap:wrap;gap:0">
+                <a href="https://www.facebook.com/kian.berong.2025" target="_blank" data-reveal="fade-up"><i
+                        class="fa-brands fa-facebook"></i></a>
+                <a href="https://github.com/kiano8" target="_blank" data-reveal="fade-up"><i
+                        class="fa-brands fa-github"></i></a>
+                <a href="https://x.com/Kianno111" target="_blank" data-reveal="fade-up"><i
+                        class="fa-brands fa-x-twitter"></i></a>
+                <a href="#" data-reveal="fade-up"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+            <a href="#contact" class="btn" data-reveal="fade-up">Lets Collab</a>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="skills" id="skills">
+        <div class="content">
+            <div class="column col-left">
+                <h2 class="content-title" data-reveal="fade-right">My Skills and Experiences</h2>
+                <div class="paragraph-text" data-reveal="fade-right">Through my studies and personal learning journey,
+                    I've gained hands-on experience in web design, basic programming, and problem-solving.
+                    I enjoy experimenting with different languages and tools to better understand how technology works
+                    together.
+                    My experience so far includes creating simple web pages, practicing logic building through coding
+                    exercises,
+                    and exploring the fundamentals of front-end and back-end development.</div>
+                <a href="#work" class="btn" data-reveal="zoom">See more</a>
+            </div>
+            <div class="column col-right">
+                <div class="tech-grid" data-stagger>
+                    <div class="tech-card" data-reveal="fade-left">
+                        <div class="tech-icon html-icon">
+                            <i class="fa-brands fa-html5"></i>
+                        </div>
+                        <div class="tech-info">
+                            <h3>HTML</h3>
+                            <span class="tech-tag">Structure & Semantics</span>
+                        </div>
+                    </div>
+                    <div class="tech-card" data-reveal="fade-left">
+                        <div class="tech-icon css-icon">
+                            <i class="fa-brands fa-css3-alt"></i>
+                        </div>
+                        <div class="tech-info">
+                            <h3>CSS</h3>
+                            <span class="tech-tag">Styling & Responsive</span>
+                        </div>
+                    </div>
+                    <div class="tech-card" data-reveal="fade-left">
+                        <div class="tech-icon js-icon">
+                            <i class="fa-brands fa-js"></i>
+                        </div>
+                        <div class="tech-info">
+                            <h3>JavaScript</h3>
+                            <span class="tech-tag">Interactive Logic</span>
+                        </div>
+                    </div>
+                    <div class="tech-card" data-reveal="fade-left">
+                        <div class="tech-icon python-icon">
+                            <i class="fa-brands fa-python"></i>
+                        </div>
+                        <div class="tech-info">
+                            <h3>Python</h3>
+                            <span class="tech-tag">Scripting & Logic</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Selected Work (Aron Vale Replicated Sticky Parallax Scroll) -->
+    <section class="work" id="work">
+        <!-- Pinned / Sticky Center Background Header -->
+        <div class="sticky-work-header">
+            <h2 class="sticky-work-title">SELECTED WORK</h2>
+        </div>
+
+        <!-- Scrolling Project Cards Track -->
+        <div class="work-track">
+            <!-- Project 1: Aligned Right -->
+            <div class="work-project-item pos-right" data-reveal="fade-up">
+                <a href="https://kiano8.github.io/SnakeGame/" target="_blank" rel="noopener noreferrer" class="work-card">
+                    <div class="work-img-box">
+                        <img src="images/snake.png" alt="Retro Snake Game" class="work-img">
+                        <div class="work-overlay-badge">PROJECT 01 · PLAY <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 1.1rem; margin-left: 3px;"></i></div>
+                    </div>
+                    <div class="work-meta">
+                        <span class="work-category">INTERACTIVE GAME / CANVAS LOGIC</span>
+                        <h3 class="work-title">RETRO SNAKE GAME</h3>
+                        <p class="work-desc">Classic grid-based arcade mechanics built with custom movement physics, food generation, and dynamic score tracking.</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Project 2: Aligned Left -->
+            <div class="work-project-item pos-left" data-reveal="fade-up">
+                <a href="https://acad-connect.vercel.app/" target="_blank" rel="noopener noreferrer" class="work-card">
+                    <div class="work-img-box">
+                        <img src="images/acadconnect.png" alt="AcadConnect Campus Life Platform" class="work-img">
+                        <div class="work-overlay-badge">PROJECT 02 · VISIT <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 1.1rem; margin-left: 3px;"></i></div>
+                    </div>
+                    <div class="work-meta">
+                        <span class="work-category">CAMPUS LIFE PLATFORM / WEB APPLICATION</span>
+                        <h3 class="work-title">ACADCONNECT</h3>
+                        <p class="work-desc">All-in-one student productivity and campus platform organizing tasks, schedules, habits, grades, and wellness in a unified interface.</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Project 3: Aligned Right -->
+            <div class="work-project-item pos-right" data-reveal="fade-up">
+                <a href="https://presentia.venki050524.workers.dev/" target="_blank" rel="noopener noreferrer" class="work-card">
+                    <div class="work-img-box">
+                        <img src="images/presentia.png" alt="Presentia Attendance System" class="work-img">
+                        <div class="work-overlay-badge">PROJECT 03 · VISIT <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 1.1rem; margin-left: 3px;"></i></div>
+                    </div>
+                    <div class="work-meta">
+                        <span class="work-category">DIGITAL SYSTEM / APPLICATION</span>
+                        <h3 class="work-title">PRESENTIA</h3>
+                        <p class="work-desc">Comprehensive attendance and presentation platform designed with intuitive workflow management and responsive UI.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+
+        <!-- Upper Block: LET'S CONNECT DIRECTLY -->
+        <div class="aron-direct-connect">
+            <div class="aron-portrait-col" data-reveal="fade-right">
+                <div class="aron-portrait-wrap">
+                    <img src="images/kian2.jpg" alt="Kian Berong" class="aron-portrait-img">
+                </div>
+            </div>
+            <div class="aron-direct-info-col" data-reveal="fade-left">
+                <div class="aron-direct-badge">
+                    <img src="images/cec.jpg" alt="Cebu Eastern College" class="aron-direct-logo">
+                    <span class="aron-direct-badge-text">CEBU EASTERN COLLEGE</span>
+                </div>
+                <h2 class="aron-headline">LET'S CONNECT<br>DIRECTLY</h2>
+                <p class="aron-lead-text">
+                    Whether you are starting a new project, exploring a collaboration, or simply looking to discuss an
+                    idea, I am always open to thoughtful conversations. Every project is an opportunity to explore
+                    creative digital solutions.
+                </p>
+                <p class="aron-sub-text">
+                    Reach out directly to connect and share your goals, ambitions, or initial thoughts to explore ideas
+                    and determine the most considered path forward.
+                </p>
+
+                <div class="aron-meta-grid">
+                    <div class="aron-meta-item">
+                        <span class="aron-meta-label">STUDIO / LOCATION</span>
+                        <h4 class="aron-meta-value">CEBU CITY,<br>PHILIPPINES</h4>
+                    </div>
+                    <div class="aron-meta-item">
+                        <span class="aron-meta-label">EMAIL</span>
+                        <a href="mailto:kianberong87@gmail.com" class="aron-meta-link">kianberong87@gmail.com</a>
+                    </div>
+                    <div class="aron-meta-item">
+                        <span class="aron-meta-label">PHONE</span>
+                        <a href="tel:+639914436036" class="aron-meta-link">+63 991 443 6036</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lower Block: LET'S DISCUSS YOUR NEXT PROJECT -->
+        <div class="aron-inquiry-section">
+            <h2 class="aron-section-hero-title" data-reveal="fade-up">LET'S DISCUSS YOUR<br>NEXT PROJECT</h2>
+
+            <div class="aron-inquiry-grid">
+                <!-- Left: Context copy -->
+                <div class="aron-inquiry-copy" data-reveal="fade-right">
+                    <p>
+                        Every project begins with an idea, a vision, and a clear reason to build. Whether you are
+                        developing a web application, an interactive user interface, refining code logic, or creating a
+                        new digital experience, share a little about your ambitions and goals.
+                    </p>
+                    <p>
+                        I work closely to understand the context, requirements, and possibilities, ensuring clean code,
+                        thoughtful interaction, and enduring performance.
+                    </p>
+                </div>
+
+                <!-- Right: Minimalist Inquiry Form -->
+                <div class="aron-form-wrap" data-reveal="fade-left">
+                    <form id="contactForm" onsubmit="sendMail(event)" novalidate>
+                        <div class="aron-field-group">
+                            <label for="contact-name">FULL NAME</label>
+                            <input id="contact-name" name="from_name" type="text" placeholder="Enter your full name*"
+                                required>
+                        </div>
+
+                        <div class="aron-field-group">
+                            <label for="contact-email">EMAIL ADDRESS</label>
+                            <input id="contact-email" name="reply_to" type="email"
+                                placeholder="Enter your email address*" required>
+                        </div>
+
+                        <div class="aron-field-group">
+                            <label for="contact-location">LOCATION</label>
+                            <input id="contact-location" type="text" placeholder="Enter your project location">
+                        </div>
+
+                        <div class="aron-field-group">
+                            <label for="contact-subject">PROJECT TYPE</label>
+                            <div class="aron-select-wrap">
+                                <select id="contact-subject" name="subject">
+                                    <option value="Web Development">Web Development</option>
+                                    <option value="Frontend & UI Design">Frontend &amp; UI Design</option>
+                                    <option value="General Collaboration">General Collaboration</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="aron-field-group">
+                            <label for="contact-message">PROJECT DETAILS</label>
+                            <textarea id="contact-message" name="message" rows="5"
+                                placeholder="Tell me about your project..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="aron-submit-btn">SEND ENQUIRY</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+        <script>
+            (function () { emailjs.init('cGGBQ6RasVp4OKnN5'); })();
+            function sendMail(e) {
+                e.preventDefault();
+                const name = document.getElementById('contact-name').value.trim();
+                const email = document.getElementById('contact-email').value.trim();
+                const message = document.getElementById('contact-message').value.trim();
+                const subject = document.getElementById('contact-subject') ? document.getElementById('contact-subject').value : 'Project Inquiry';
+                const location = document.getElementById('contact-location') ? document.getElementById('contact-location').value.trim() : '';
+                if (!name || !email || !message) { alert('Please fill in all required fields.'); return; }
+
+                let fullMsg = `Project Type: ${subject}\n`;
+                if (location) fullMsg += `Location: ${location}\n`;
+                fullMsg += `\n${message}`;
+
+                const btn = document.querySelector('.aron-submit-btn');
+                if (btn) { btn.innerText = 'SENDING...'; btn.disabled = true; }
+
+                emailjs.send('service', 'kiano', { from_name: name, reply_to: email, message: fullMsg, to_email: 'kianberong87@gmail.com' })
+                    .then(() => {
+                        alert('Message sent successfully!');
+                        document.getElementById('contactForm').reset();
+                        if (btn) { btn.innerText = 'SEND ENQUIRY'; btn.disabled = false; }
+                    }, (err) => {
+                        console.error(err);
+                        alert('Failed to send message. Please try again later.');
+                        if (btn) { btn.innerText = 'SEND ENQUIRY'; btn.disabled = false; }
+                    });
+            }
+        </script>
+    </section>
+
+    <!-- Footer: Aron Vale "LET'S TALK" Style -->
+    <footer class="aron-footer">
+        <div class="aron-footer-top">
+            <h2 class="aron-footer-title">LET'S<br>TALK</h2>
+            <span class="aron-footer-badge">START A CONVERSATION</span>
+        </div>
+
+        <div class="aron-footer-grid">
+            <div class="aron-footer-col">
+                <span class="aron-footer-col-label">REACH KIAN</span>
+                <p class="aron-footer-val">CEBU CITY, PHILIPPINES</p>
+                <p><a href="tel:+639914436036">+63 991 443 6036</a></p>
+                <p><a href="mailto:kianberong87@gmail.com">kianberong87@gmail.com</a></p>
+            </div>
+
+            <div class="aron-footer-col">
+                <span class="aron-footer-col-label">SOCIAL LINKS</span>
+                <ul class="aron-social-list">
+                    <li><a href="https://www.facebook.com/kian.berong.2025" target="_blank">FACEBOOK</a></li>
+                    <li><a href="https://github.com/kiano8" target="_blank">GITHUB</a></li>
+                    <li><a href="https://x.com/Kianno111" target="_blank">X / TWITTER</a></li>
+                    <li><a href="#">INSTAGRAM</a></li>
+                </ul>
+            </div>
+
+            <div class="aron-footer-col aron-footer-nav-col">
+                <ul class="aron-footer-nav-links">
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#about">ABOUT</a></li>
+                    <li><a href="#skills">SKILLS</a></li>
+                    <li><a href="#work">WORK</a></li>
+                    <li><a href="#contact">CONTACT</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="aron-footer-bottom">
+            <p>&copy; 2025 KIAN BERONG. ALL RIGHTS RESERVED.</p>
+            <p class="aron-built-tag">BUILT WITH PURPOSE</p>
+        </div>
+    </footer>
+
+    <script src="js/background.js"></script>
+    <script>
+        /* ── Smooth scroll-reveal via Intersection Observer ── */
+        (function () {
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-visible');
+                            /* fire once, then stop watching */
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                },
+                { threshold: 0.05, rootMargin: '0px 0px 40px 0px' }
+            );
+
+            /* observe all elements with data-reveal */
+            document.querySelectorAll('[data-reveal]').forEach((el) => observer.observe(el));
+
+            /* active nav link highlight on scroll */
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('nav a');
+            const spy = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            navLinks.forEach((a) => a.classList.remove('active'));
+                            const active = document.querySelector(`nav a[href="#${entry.target.id}"]`);
+                            if (active) active.classList.add('active');
+                        }
+                    });
+                },
+                { threshold: 0.4 }
+            );
+            sections.forEach((s) => spy.observe(s));
+
+            /* home section: trigger immediately since it's already visible */
+            document.querySelectorAll('.home [data-reveal]').forEach((el) => {
+                el.classList.add('is-visible');
+            });
+
+            /* ── Parallax scroll tracking for Selected Work title ── */
+            const workSec = document.getElementById('work');
+            const stickyTitle = document.querySelector('.sticky-work-title');
+            if (workSec && stickyTitle) {
+                window.addEventListener('scroll', () => {
+                    const rect = workSec.getBoundingClientRect();
+                    const totalDist = rect.height - window.innerHeight;
+                    if (totalDist > 0 && rect.top <= 0 && rect.bottom >= window.innerHeight) {
+                        const progress = Math.min(Math.max(-rect.top / totalDist, 0), 1);
+                        /* gentle float and scale feel identical to Framer */
+                        stickyTitle.style.transform = `translateY(${-4 + progress * 8}vh) scale(${1 - progress * 0.04})`;
+                        stickyTitle.style.opacity = `${0.95 - progress * 0.15}`;
+                    } else if (rect.top > 0) {
+                        stickyTitle.style.transform = 'translateY(-4vh) scale(1)';
+                        stickyTitle.style.opacity = '0.95';
+                    }
+                }, { passive: true });
+            }
+        })();
+    </script>
+
+</body>
+
+</html>

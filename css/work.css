@@ -1,0 +1,239 @@
+/* ==========================================================================
+   Aron Vale Replicated Selected Work (Sticky Header & Parallax Scroll)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Manrope:wght@400;500;600;700&display=swap');
+
+/* ── Work Section Track ── */
+section.work {
+    position: relative;
+    background-color: #000000;
+    min-height: 310vh;
+    padding: 0 8%;
+    overflow: visible;
+    scroll-margin-top: 60px;
+}
+
+/* ── Pinned / Sticky Center Background Header ── */
+.sticky-work-header {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.sticky-work-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13.5vw;
+    font-weight: 900;
+    letter-spacing: -2px;
+    color: rgba(255, 255, 255, 0.95);
+    text-transform: uppercase;
+    line-height: 0.88;
+    text-align: center;
+    white-space: nowrap;
+    user-select: none;
+    transform: translateY(-2vh);
+    transition: transform 0.2s ease-out;
+}
+
+/* ── Scroll Track of Projects ── */
+.work-track {
+    position: relative;
+    z-index: 2;
+    margin-top: -100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 32vh;
+    padding-top: 6vh;
+    padding-bottom: 25vh;
+}
+
+/* Individual Project Item Layouts */
+.work-project-item {
+    display: flex;
+    width: 100%;
+}
+
+.work-project-item.pos-right {
+    justify-content: flex-end;
+}
+
+.work-project-item.pos-left {
+    justify-content: flex-start;
+}
+
+.work-project-item.pos-center {
+    justify-content: center;
+}
+
+/* Project Card */
+.work-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    width: 48%;
+    max-width: 600px;
+    background: rgba(18, 18, 18, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    padding: 1.8rem;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.75);
+    transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+                border-color 0.35s ease,
+                box-shadow 0.45s ease;
+    cursor: pointer;
+}
+
+.work-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    border-color: #bac369;
+    box-shadow: 0 40px 90px rgba(0, 0, 0, 0.95),
+                0 0 35px rgba(186, 195, 105, 0.2);
+}
+
+/* Image Container */
+.work-img-box {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border-radius: 8px;
+    background-color: #0d0d0d;
+}
+
+.work-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(40%) contrast(110%);
+    transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1),
+                filter 0.5s ease;
+}
+
+.work-card:hover .work-img {
+    transform: scale(1.06);
+    filter: grayscale(0%) contrast(105%);
+}
+
+.work-overlay-badge {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    padding: 0.5rem 1.2rem;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 30px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: #bac369;
+}
+
+/* Project Metadata */
+.work-meta {
+    padding: 1.8rem 0.6rem 0.6rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.work-category {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.45rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #bac369;
+    margin-bottom: 0.5rem;
+}
+
+.work-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 3.6rem;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.5px;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    transition: color 0.3s ease;
+}
+
+.work-card:hover .work-title {
+    color: #bac369;
+}
+
+.work-desc {
+    font-family: 'Manrope', sans-serif;
+    font-size: 1.45rem;
+    line-height: 1.65;
+    color: #a0a0a0;
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+    .sticky-work-title {
+        font-size: 15vw;
+    }
+
+    .work-card {
+        width: 65%;
+    }
+
+    .work-track {
+        gap: 25vh;
+    }
+}
+
+@media (max-width: 768px) {
+    section.work {
+        min-height: auto;
+        padding: 8rem 6%;
+    }
+
+    .sticky-work-header {
+        position: relative;
+        height: auto;
+        margin-bottom: 4rem;
+        padding-top: 2rem;
+    }
+
+    .sticky-work-title {
+        font-size: 16vw;
+        line-height: 1;
+        white-space: normal;
+        transform: none;
+    }
+
+    .work-track {
+        margin-top: 0;
+        gap: 4.5rem;
+        padding: 0;
+    }
+
+    .work-project-item {
+        justify-content: center !important;
+    }
+
+    .work-card {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .work-title {
+        font-size: 3rem;
+    }
+}
