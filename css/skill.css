@@ -1,77 +1,168 @@
 /* ==========================================================================
-   Skills Section Styles - Modern Minimalist Editorial Design
+   Skills Section Styles - High-End Editorial & Glassmorphism Design
+   Cohesive with Aron Vale Portfolio Aesthetic
    ========================================================================== */
 
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Manrope:wght@400;500;600;700&display=swap');
+
+/* --- Section Container --- */
 section.skills,
 .skills {
     background-color: transparent;
     position: relative;
     min-height: auto;
-    padding: 5rem 9% 3rem;
+    padding: 10rem 8% 8rem;
     scroll-margin-top: 80px;
+    z-index: 2;
 }
 
+.skills-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* ── 1. Section Header / Eyebrow ── */
+.skills-header {
+    margin-bottom: 5.5rem;
+}
+
+.skills-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.45rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #bac369;
+    background: rgba(186, 195, 105, 0.08);
+    border: 1px solid rgba(186, 195, 105, 0.25);
+    padding: 0.7rem 1.8rem;
+    border-radius: 100px;
+    margin-bottom: 2rem;
+    backdrop-filter: blur(8px);
+}
+
+.skills-eyebrow i {
+    font-size: 1.25rem;
+}
+
+.skills-header .content-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 6.8rem;
+    font-weight: 900;
+    line-height: 0.92;
+    letter-spacing: -1.5px;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin: 0;
+}
+
+.skills-header .accent-text {
+    color: #bac369;
+}
+
+/* ── 2. Content Layout (2 Columns) ── */
 .skills .content {
     position: relative;
     width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 5rem;
-    color: #fff;
-    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1.18fr;
+    gap: 6.5rem;
+    align-items: start;
+    color: #ffffff;
+    margin-top: 0;
 }
 
-/* Left Column: Description & Story */
+/* ── 3. Left Column: Story & Competencies ── */
 .skills .content .col-left {
     position: relative;
-    width: 48%;
-    flex: 1;
+    width: 100%;
 }
 
-.skills .content .col-left .content-title {
-    font-size: 2.8rem;
-    font-weight: 700;
-    line-height: 1.3;
-    margin-bottom: 2rem;
-    color: #ffffff;
-    letter-spacing: -0.5px;
+.paragraph-lead {
+    font-family: 'Manrope', sans-serif;
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1.55;
+    color: #f5f5f5;
+    margin-bottom: 1.8rem;
 }
 
-.skills .content .col-left .paragraph-text {
-    font-size: 1.6rem;
-    line-height: 1.8;
-    color: #b5b5b5;
-    margin-bottom: 2.5rem;
+.paragraph-text {
+    font-family: 'Manrope', sans-serif;
+    font-size: 1.55rem;
     font-weight: 400;
+    line-height: 1.8;
+    color: #a3a3a3;
+    margin-bottom: 3.5rem;
 }
 
-/* Right Column: Tech Stack Grid */
+/* Editorial CTA Button */
+.skills-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 1.6rem 3.2rem;
+    background: #bac369;
+    color: #0a0a0a !important;
+    border-radius: 4px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border: 1px solid #bac369;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.skills-cta-btn:hover {
+    background: transparent;
+    color: #bac369 !important;
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(186, 195, 105, 0.25);
+}
+
+.skills-cta-btn i {
+    font-size: 1.5rem;
+    color: #0a0a0a !important;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.skills-cta-btn:hover i {
+    color: #bac369 !important;
+    transform: translateX(5px);
+}
+
+/* ── 4. Right Column: Tech Stack Grid ── */
 .skills .content .col-right {
     position: relative;
-    width: 48%;
-    flex: 1;
+    width: 100%;
 }
 
 .tech-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+    gap: 2.2rem;
     width: 100%;
 }
 
-/* Individual Tech Language Card */
+/* Individual Tech Language Card - Clean Minimalist Horizontal */
 .tech-card {
     position: relative;
     display: flex;
+    flex-direction: row;
     align-items: center;
-    gap: 1.8rem;
-    padding: 2.2rem 2rem;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 16px;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    gap: 2.2rem;
+    padding: 2.4rem 2.6rem;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.015) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
     transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
                 border-color 0.35s ease,
                 background 0.35s ease,
@@ -84,54 +175,54 @@ section.skills,
 .tech-card::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at top right, rgba(186, 195, 105, 0.12), transparent 70%);
+    inset: 0;
+    background: radial-gradient(circle at 85% 50%, rgba(186, 195, 105, 0.12), transparent 70%);
     opacity: 0;
     transition: opacity 0.4s ease;
     pointer-events: none;
 }
 
 .tech-card:hover {
-    transform: translateY(-6px);
-    background: rgba(255, 255, 255, 0.06);
-    border-color: #bac369;
-    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5),
-                0 0 25px rgba(186, 195, 105, 0.15);
+    transform: translateY(-6px) scale(1.02);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.02) 100%);
+    border-color: rgba(186, 195, 105, 0.5);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6),
+                0 0 25px rgba(186, 195, 105, 0.12);
 }
 
 .tech-card:hover::before {
     opacity: 1;
 }
 
-/* Tech Icon */
 .tech-icon {
-    width: 56px;
-    height: 56px;
+    width: 60px;
+    height: 60px;
     border-radius: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2.8rem;
+    font-size: 3rem;
     flex-shrink: 0;
     transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
                 box-shadow 0.35s ease,
                 border-color 0.35s ease;
 }
 
+.tech-card:hover .tech-icon {
+    transform: scale(1.12);
+}
+
 /* Brand-specific icon accent styles */
 .html-icon {
-    color: #f06529;
-    background: rgba(240, 101, 41, 0.1);
-    border: 1px solid rgba(240, 101, 41, 0.25);
+    color: #e44d26;
+    background: rgba(228, 77, 38, 0.1);
+    border: 1px solid rgba(228, 77, 38, 0.25);
 }
 
 .css-icon {
-    color: #2965f1;
-    background: rgba(41, 101, 241, 0.1);
-    border: 1px solid rgba(41, 101, 241, 0.25);
+    color: #264de4;
+    background: rgba(38, 77, 228, 0.1);
+    border: 1px solid rgba(38, 77, 228, 0.25);
 }
 
 .js-icon {
@@ -146,95 +237,102 @@ section.skills,
     border: 1px solid rgba(75, 139, 190, 0.25);
 }
 
-.tech-card:hover .tech-icon {
-    transform: scale(1.12);
+.git-icon {
+    color: #f05032;
+    background: rgba(240, 80, 50, 0.1);
+    border: 1px solid rgba(240, 80, 50, 0.25);
 }
 
+.ai-icon {
+    color: #a855f7;
+    background: rgba(168, 85, 247, 0.1);
+    border: 1px solid rgba(168, 85, 247, 0.25);
+}
+
+/* Glow effects on card hover */
 .tech-card:hover .html-icon {
-    box-shadow: 0 0 20px rgba(240, 101, 41, 0.4);
-    border-color: #f06529;
+    box-shadow: 0 0 25px rgba(228, 77, 38, 0.45);
+    border-color: #e44d26;
 }
 
 .tech-card:hover .css-icon {
-    box-shadow: 0 0 20px rgba(41, 101, 241, 0.4);
-    border-color: #2965f1;
+    box-shadow: 0 0 25px rgba(38, 77, 228, 0.45);
+    border-color: #264de4;
 }
 
 .tech-card:hover .js-icon {
-    box-shadow: 0 0 20px rgba(247, 223, 30, 0.4);
+    box-shadow: 0 0 25px rgba(247, 223, 30, 0.45);
     border-color: #f7df1e;
 }
 
 .tech-card:hover .python-icon {
-    box-shadow: 0 0 20px rgba(75, 139, 190, 0.4);
+    box-shadow: 0 0 25px rgba(75, 139, 190, 0.45);
     border-color: #4b8bbe;
 }
 
-/* Tech Info (Title & Tag) */
+.tech-card:hover .git-icon {
+    box-shadow: 0 0 25px rgba(240, 80, 50, 0.45);
+    border-color: #f05032;
+}
+
+.tech-card:hover .ai-icon {
+    box-shadow: 0 0 25px rgba(168, 85, 247, 0.45);
+    border-color: #a855f7;
+}
+
+/* Tech Info (Title only) */
 .tech-info {
     display: flex;
-    flex-direction: column;
+    align-items: center;
 }
 
 .tech-info h3 {
-    font-size: 1.8rem;
-    font-weight: 600;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 3.2rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
     color: #ffffff;
-    margin-bottom: 0.3rem;
-    letter-spacing: 0.3px;
+    line-height: 1;
+    margin: 0;
     transition: color 0.3s ease;
 }
 
 .tech-card:hover .tech-info h3 {
-    color: #fff;
-}
-
-.tech-tag {
-    font-size: 1.25rem;
-    color: #8c8c8c;
-    font-weight: 400;
-    letter-spacing: 0.2px;
-    transition: color 0.3s ease;
-}
-
-.tech-card:hover .tech-tag {
-    color: #bac369;
+    color: #ffffff;
 }
 
 /* ==========================================================================
    Responsive Breakpoints
    ========================================================================== */
 
-@media (max-width: 995px) {
-    section.skills,
-    .skills {
-        min-height: auto;
-        padding: 4rem 6% 3rem;
-    }
-
+@media (max-width: 1080px) {
     .skills .content {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 4rem;
+        grid-template-columns: 1fr;
+        gap: 5.5rem;
     }
 
-    .skills .content .col-left,
-    .skills .content .col-right {
-        width: 100%;
+    .skills-header .content-title {
+        font-size: 5.4rem;
     }
 }
 
-@media (max-width: 580px) {
+@media (max-width: 680px) {
+    section.skills,
+    .skills {
+        padding: 6rem 5% 5rem;
+    }
+
+    .skills-header .content-title {
+        font-size: 4.2rem;
+    }
+
+    .paragraph-lead {
+        font-size: 1.8rem;
+    }
+
     .tech-grid {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-
-    .tech-card {
-        padding: 1.8rem 1.6rem;
-    }
-
-    .skills .content .col-left .content-title {
-        font-size: 2.3rem;
+        gap: 1.8rem;
     }
 }

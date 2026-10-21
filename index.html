@@ -11,7 +11,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/skill.css">
+    <link rel="stylesheet" href="css/skill.css?v=5">
     <link rel="stylesheet" href="css/work.css">
     <link rel="stylesheet" href="css/contact.css">
     <link rel="icon" href="images/K.jpg">
@@ -21,9 +21,9 @@
 <body>
 
     <header>
-        <a href="#" class="logo">Kian</a>
+        <a href="#home" class="logo">Kian</a>
         <nav>
-            <a href="#"> Home</a>
+            <a href="#home" class="active">Home</a>
             <a href="#skills">Skills</a>
             <a href="#work">Work</a>
             <a href="#contact">Contact</a>
@@ -31,7 +31,7 @@
     </header>
 
     <!-- Home -->
-    <section class="home">
+    <section class="home" id="home">
         <div class="home-img" data-reveal="zoom">
             <img src="images/kian.png" alt="">
         </div>
@@ -57,58 +57,98 @@
 
     <!-- Skills -->
     <section class="skills" id="skills">
-        <div class="content">
-            <div class="column col-left">
-                <h2 class="content-title" data-reveal="fade-right">My Skills and Experiences</h2>
-                <div class="paragraph-text" data-reveal="fade-right">Through my studies and personal learning journey,
-                    I've gained hands-on experience in web design, basic programming, and problem-solving.
-                    I enjoy experimenting with different languages and tools to better understand how technology works
-                    together.
-                    My experience so far includes creating simple web pages, practicing logic building through coding
-                    exercises,
-                    and exploring the fundamentals of front-end and back-end development.</div>
-                <a href="#work" class="btn" data-reveal="zoom">See more</a>
+        <div class="skills-container">
+            <!-- Section Header / Eyebrow -->
+            <div class="skills-header" data-reveal="fade-up">
+                <span class="skills-eyebrow"><i class="fa-solid fa-code"></i> TECHNICAL MASTERY &amp; TOOLKIT</span>
+                <h2 class="content-title">CRAFTING ROBUST<br><span class="accent-text">DIGITAL EXPERIENCES</span></h2>
             </div>
-            <div class="column col-right">
-                <div class="tech-grid" data-stagger>
-                    <div class="tech-card" data-reveal="fade-left">
-                        <div class="tech-icon html-icon">
-                            <i class="fa-brands fa-html5"></i>
-                        </div>
-                        <div class="tech-info">
-                            <h3>HTML</h3>
-                            <span class="tech-tag">Structure & Semantics</span>
-                        </div>
+
+            <div class="content">
+                <!-- Left Column: Story & Key Competencies -->
+                <div class="column col-left">
+                    <p class="paragraph-lead" data-reveal="fade-right">
+                        Bridging creative design with clean, maintainable engineering across modern web technologies.
+                    </p>
+                    <div class="paragraph-text" data-reveal="fade-right">
+                        Through my academic studies and dedicated personal development, I have built a strong, hands-on
+                        foundation in front-end architecture, interactive logic, and systematic problem-solving.
+                        I enjoy turning design concepts into responsive, high-performance web applications with semantic
+                        standards and polished user experiences.
                     </div>
-                    <div class="tech-card" data-reveal="fade-left">
-                        <div class="tech-icon css-icon">
-                            <i class="fa-brands fa-css3-alt"></i>
+
+                    <a href="#work" class="skills-cta-btn" data-reveal="zoom">
+                        EXPLORE SELECTED WORK
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Right Column: Tech Stack Grid -->
+                <div class="column col-right">
+                    <div class="tech-grid" data-stagger>
+                        <!-- HTML5 -->
+                        <div class="tech-card" data-reveal="fade-left">
+                            <div class="tech-icon html-icon">
+                                <i class="fa-brands fa-html5"></i>
+                            </div>
+                            <div class="tech-info">
+                                <h3>HTML5</h3>
+                            </div>
                         </div>
-                        <div class="tech-info">
-                            <h3>CSS</h3>
-                            <span class="tech-tag">Styling & Responsive</span>
+
+                        <!-- CSS3 -->
+                        <div class="tech-card" data-reveal="fade-left">
+                            <div class="tech-icon css-icon">
+                                <i class="fa-brands fa-css3-alt"></i>
+                            </div>
+                            <div class="tech-info">
+                                <h3>CSS3</h3>
+                            </div>
                         </div>
-                    </div>
-                    <div class="tech-card" data-reveal="fade-left">
-                        <div class="tech-icon js-icon">
-                            <i class="fa-brands fa-js"></i>
+
+                        <!-- JavaScript -->
+                        <div class="tech-card" data-reveal="fade-left">
+                            <div class="tech-icon js-icon">
+                                <i class="fa-brands fa-js"></i>
+                            </div>
+                            <div class="tech-info">
+                                <h3>JavaScript</h3>
+                            </div>
                         </div>
-                        <div class="tech-info">
-                            <h3>JavaScript</h3>
-                            <span class="tech-tag">Interactive Logic</span>
+
+                        <!-- Python -->
+                        <div class="tech-card" data-reveal="fade-left">
+                            <div class="tech-icon python-icon">
+                                <i class="fa-brands fa-python"></i>
+                            </div>
+                            <div class="tech-info">
+                                <h3>Python</h3>
+                            </div>
                         </div>
-                    </div>
-                    <div class="tech-card" data-reveal="fade-left">
-                        <div class="tech-icon python-icon">
-                            <i class="fa-brands fa-python"></i>
+
+                        <!-- Git & GitHub -->
+                        <div class="tech-card" data-reveal="fade-left">
+                            <div class="tech-icon git-icon">
+                                <i class="fa-brands fa-git-alt"></i>
+                            </div>
+                            <div class="tech-info">
+                                <h3>Git &amp; GitHub</h3>
+                            </div>
                         </div>
-                        <div class="tech-info">
-                            <h3>Python</h3>
-                            <span class="tech-tag">Scripting & Logic</span>
+
+                        <!-- AI Prompting -->
+                        <div class="tech-card" data-reveal="fade-left">
+                            <div class="tech-icon ai-icon">
+                                <i class="fa-solid fa-brain"></i>
+                            </div>
+                            <div class="tech-info">
+                                <h3>AI Prompting</h3>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
     </section>
 
@@ -123,15 +163,19 @@
         <div class="work-track">
             <!-- Project 1: Aligned Right -->
             <div class="work-project-item pos-right" data-reveal="fade-up">
-                <a href="https://kiano8.github.io/SnakeGame/" target="_blank" rel="noopener noreferrer" class="work-card">
+                <a href="https://kiano8.github.io/SnakeGame/" target="_blank" rel="noopener noreferrer"
+                    class="work-card">
                     <div class="work-img-box">
                         <img src="images/snake.png" alt="Retro Snake Game" class="work-img">
-                        <div class="work-overlay-badge">PROJECT 01 · PLAY <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 1.1rem; margin-left: 3px;"></i></div>
+                        <div class="work-overlay-badge">PROJECT 01 · PLAY <i
+                                class="fa-solid fa-arrow-up-right-from-square"
+                                style="font-size: 1.1rem; margin-left: 3px;"></i></div>
                     </div>
                     <div class="work-meta">
                         <span class="work-category">INTERACTIVE GAME / CANVAS LOGIC</span>
                         <h3 class="work-title">RETRO SNAKE GAME</h3>
-                        <p class="work-desc">Classic grid-based arcade mechanics built with custom movement physics, food generation, and dynamic score tracking.</p>
+                        <p class="work-desc">Classic grid-based arcade mechanics built with custom movement physics,
+                            food generation, and dynamic score tracking.</p>
                     </div>
                 </a>
             </div>
@@ -141,27 +185,34 @@
                 <a href="https://acad-connect.vercel.app/" target="_blank" rel="noopener noreferrer" class="work-card">
                     <div class="work-img-box">
                         <img src="images/acadconnect.png" alt="AcadConnect Campus Life Platform" class="work-img">
-                        <div class="work-overlay-badge">PROJECT 02 · VISIT <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 1.1rem; margin-left: 3px;"></i></div>
+                        <div class="work-overlay-badge">PROJECT 02 · VISIT <i
+                                class="fa-solid fa-arrow-up-right-from-square"
+                                style="font-size: 1.1rem; margin-left: 3px;"></i></div>
                     </div>
                     <div class="work-meta">
                         <span class="work-category">CAMPUS LIFE PLATFORM / WEB APPLICATION</span>
                         <h3 class="work-title">ACADCONNECT</h3>
-                        <p class="work-desc">All-in-one student productivity and campus platform organizing tasks, schedules, habits, grades, and wellness in a unified interface.</p>
+                        <p class="work-desc">All-in-one student productivity and campus platform organizing tasks,
+                            schedules, habits, grades, and wellness in a unified interface.</p>
                     </div>
                 </a>
             </div>
 
             <!-- Project 3: Aligned Right -->
             <div class="work-project-item pos-right" data-reveal="fade-up">
-                <a href="https://presentia.venki050524.workers.dev/" target="_blank" rel="noopener noreferrer" class="work-card">
+                <a href="https://presentia.venki050524.workers.dev/" target="_blank" rel="noopener noreferrer"
+                    class="work-card">
                     <div class="work-img-box">
                         <img src="images/presentia.png" alt="Presentia Attendance System" class="work-img">
-                        <div class="work-overlay-badge">PROJECT 03 · VISIT <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 1.1rem; margin-left: 3px;"></i></div>
+                        <div class="work-overlay-badge">PROJECT 03 · VISIT <i
+                                class="fa-solid fa-arrow-up-right-from-square"
+                                style="font-size: 1.1rem; margin-left: 3px;"></i></div>
                     </div>
                     <div class="work-meta">
                         <span class="work-category">DIGITAL SYSTEM / APPLICATION</span>
                         <h3 class="work-title">PRESENTIA</h3>
-                        <p class="work-desc">Comprehensive attendance and presentation platform designed with intuitive workflow management and responsive UI.</p>
+                        <p class="work-desc">Comprehensive attendance and presentation platform designed with intuitive
+                            workflow management and responsive UI.</p>
                     </div>
                 </a>
             </div>
@@ -227,7 +278,7 @@
 
                 <!-- Right: Minimalist Inquiry Form -->
                 <div class="aron-form-wrap" data-reveal="fade-left">
-                    <form id="contactForm" onsubmit="sendMail(event)" novalidate>
+                    <form id="contactForm" novalidate>
                         <div class="aron-field-group">
                             <label for="contact-name">FULL NAME</label>
                             <input id="contact-name" name="from_name" type="text" placeholder="Enter your full name*"
@@ -267,38 +318,6 @@
                 </div>
             </div>
         </div>
-
-        <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-        <script>
-            (function () { emailjs.init('cGGBQ6RasVp4OKnN5'); })();
-            function sendMail(e) {
-                e.preventDefault();
-                const name = document.getElementById('contact-name').value.trim();
-                const email = document.getElementById('contact-email').value.trim();
-                const message = document.getElementById('contact-message').value.trim();
-                const subject = document.getElementById('contact-subject') ? document.getElementById('contact-subject').value : 'Project Inquiry';
-                const location = document.getElementById('contact-location') ? document.getElementById('contact-location').value.trim() : '';
-                if (!name || !email || !message) { alert('Please fill in all required fields.'); return; }
-
-                let fullMsg = `Project Type: ${subject}\n`;
-                if (location) fullMsg += `Location: ${location}\n`;
-                fullMsg += `\n${message}`;
-
-                const btn = document.querySelector('.aron-submit-btn');
-                if (btn) { btn.innerText = 'SENDING...'; btn.disabled = true; }
-
-                emailjs.send('service', 'kiano', { from_name: name, reply_to: email, message: fullMsg, to_email: 'kianberong87@gmail.com' })
-                    .then(() => {
-                        alert('Message sent successfully!');
-                        document.getElementById('contactForm').reset();
-                        if (btn) { btn.innerText = 'SEND ENQUIRY'; btn.disabled = false; }
-                    }, (err) => {
-                        console.error(err);
-                        alert('Failed to send message. Please try again later.');
-                        if (btn) { btn.innerText = 'SEND ENQUIRY'; btn.disabled = false; }
-                    });
-            }
-        </script>
     </section>
 
     <!-- Footer: Aron Vale "LET'S TALK" Style -->
@@ -328,7 +347,7 @@
 
             <div class="aron-footer-col aron-footer-nav-col">
                 <ul class="aron-footer-nav-links">
-                    <li><a href="#">HOME</a></li>
+                    <li><a href="#home">HOME</a></li>
                     <li><a href="#about">ABOUT</a></li>
                     <li><a href="#skills">SKILLS</a></li>
                     <li><a href="#work">WORK</a></li>
@@ -352,102 +371,10 @@
         </svg>
     </button>
 
+    <!-- Scripts -->
     <script src="js/background.js"></script>
-    <script>
-        /* ── Smooth scroll-reveal via Intersection Observer ── */
-        (function () {
-            const observer = new IntersectionObserver(
-                (entries) => {
-                    entries.forEach((entry) => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('is-visible');
-                            /* fire once, then stop watching */
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                },
-                { threshold: 0.05, rootMargin: '0px 0px 40px 0px' }
-            );
-
-            /* observe all elements with data-reveal */
-            document.querySelectorAll('[data-reveal]').forEach((el) => observer.observe(el));
-
-            /* active nav link highlight on scroll */
-            const sections = document.querySelectorAll('section[id]');
-            const navLinks = document.querySelectorAll('nav a');
-            const spy = new IntersectionObserver(
-                (entries) => {
-                    entries.forEach((entry) => {
-                        if (entry.isIntersecting) {
-                            navLinks.forEach((a) => a.classList.remove('active'));
-                            const active = document.querySelector(`nav a[href="#${entry.target.id}"]`);
-                            if (active) active.classList.add('active');
-                        }
-                    });
-                },
-                { threshold: 0.4 }
-            );
-            sections.forEach((s) => spy.observe(s));
-
-            /* home section: trigger immediately since it's already visible */
-            document.querySelectorAll('.home [data-reveal]').forEach((el) => {
-                el.classList.add('is-visible');
-            });
-
-            /* ── Parallax scroll tracking for Selected Work title ── */
-            const workSec = document.getElementById('work');
-            const stickyTitle = document.querySelector('.sticky-work-title');
-            if (workSec && stickyTitle) {
-                window.addEventListener('scroll', () => {
-                    const rect = workSec.getBoundingClientRect();
-                    const totalDist = rect.height - window.innerHeight;
-                    if (totalDist > 0 && rect.top <= 0 && rect.bottom >= window.innerHeight) {
-                        const progress = Math.min(Math.max(-rect.top / totalDist, 0), 1);
-                        /* gentle float and scale feel identical to Framer */
-                        stickyTitle.style.transform = `translateY(${-4 + progress * 8}vh) scale(${1 - progress * 0.04})`;
-                        stickyTitle.style.opacity = `${0.95 - progress * 0.15}`;
-                    } else if (rect.top > 0) {
-                        stickyTitle.style.transform = 'translateY(-4vh) scale(1)';
-                        stickyTitle.style.opacity = '0.95';
-                    }
-                }, { passive: true });
-            }
-
-            /* ── Auto Scroll Up Button & Progress Ring ── */
-            const scrollBtn = document.getElementById('scrollToTopBtn');
-            const progressCircle = document.getElementById('scrollProgressCircle');
-            const circumference = 2 * Math.PI * 20; // 125.66
-
-            if (scrollBtn) {
-                const updateScrollState = () => {
-                    const scrollTop = window.scrollY || document.documentElement.scrollTop;
-                    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-
-                    if (scrollTop > 260) {
-                        scrollBtn.classList.add('visible');
-                    } else {
-                        scrollBtn.classList.remove('visible');
-                    }
-
-                    if (progressCircle && docHeight > 0) {
-                        const progress = Math.min(Math.max(scrollTop / docHeight, 0), 1);
-                        const offset = circumference - (progress * circumference);
-                        progressCircle.style.strokeDashoffset = offset;
-                    }
-                };
-
-                window.addEventListener('scroll', updateScrollState, { passive: true });
-                updateScrollState();
-
-                scrollBtn.addEventListener('click', () => {
-                    window.scrollTo({
-                        top: 0,
-                        behavior: 'smooth'
-                    });
-                });
-            }
-        })();
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="js/script.js"></script>
 
 </body>
 
