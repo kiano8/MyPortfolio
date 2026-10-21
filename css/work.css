@@ -8,7 +8,7 @@
 section.work {
     position: relative;
     background-color: #000000;
-    min-height: 310vh;
+    min-height: 400vh;
     padding: 0 8%;
     overflow: visible;
     scroll-margin-top: 60px;
@@ -49,7 +49,7 @@ section.work {
     margin-top: -100vh;
     display: flex;
     flex-direction: column;
-    gap: 32vh;
+    gap: 28vh;
     padding-top: 6vh;
     padding-bottom: 25vh;
 }
