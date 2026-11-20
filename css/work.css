@@ -38,8 +38,8 @@ section.work {
     text-align: center;
     white-space: nowrap;
     user-select: none;
-    transform: translateY(-2vh);
-    transition: transform 0.2s ease-out;
+    transform: translate3d(0, -2vh, 0);
+    will-change: transform, opacity;
 }
 
 /* ── Scroll Track of Projects ── */
@@ -79,17 +79,18 @@ section.work {
     color: inherit;
     width: 48%;
     max-width: 600px;
-    background: rgba(18, 18, 18, 0.85);
+    background: rgba(18, 18, 18, 0.9);
     border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 12px;
     padding: 1.8rem;
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.75);
-    transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 24px 56px rgba(0, 0, 0, 0.75);
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
                 border-color 0.35s ease,
-                box-shadow 0.45s ease;
+                box-shadow 0.4s ease;
     cursor: pointer;
+    backface-visibility: hidden;
 }
 
 .work-card:hover {

@@ -135,8 +135,13 @@
         (entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    revealObserver.unobserve(entry.target);
+                    const el = entry.target;
+                    el.classList.add('is-visible');
+                    // Release GPU compositor layer after reveal animation finishes
+                    setTimeout(() => {
+                        el.classList.add('reveal-complete');
+                    }, 800);
+                    revealObserver.unobserve(el);
                 }
             });
         },
@@ -148,15 +153,58 @@
     // Home section: trigger immediately since it is visible on load
     document.querySelectorAll('.home [data-reveal]').forEach((el) => {
         el.classList.add('is-visible');
+        setTimeout(() => {
+            el.classList.add('reveal-complete');
+        }, 800);
     });
 
-    /* ── 3. Active Nav Link Highlight on Scroll & Click ── */
+    /* ── 3. Active Nav Link Highlight, Parallax & Progress Ring (Unified rAF Scroll Loop) ── */
     const navLinks = document.querySelectorAll('header nav a');
-    const sections = document.querySelectorAll('section[id]');
+    const sections = Array.from(document.querySelectorAll('section[id]'));
+    const workSec = document.getElementById('work');
+    const stickyTitle = document.querySelector('.sticky-work-title');
+    const scrollBtn = document.getElementById('scrollToTopBtn');
+    const progressCircle = document.getElementById('scrollProgressCircle');
+    const circumference = 2 * Math.PI * 20; // ~125.66
+
     let isClickScrolling = false;
     let clickTimeout = null;
+    let activeNavId = 'home';
+    let scrollBtnVisible = false;
+
+    // Cached layout metrics to prevent synchronous reflows during scroll
+    let winH = window.innerHeight;
+    let winW = window.innerWidth;
+    let docH = document.documentElement.scrollHeight;
+    let sectionBounds = [];
+    let workTop = 0;
+    let workHeight = 0;
+
+    function cacheLayoutMetrics() {
+        const scrollY = window.scrollY || document.documentElement.scrollTop;
+        winH = window.innerHeight;
+        winW = window.innerWidth;
+        docH = document.documentElement.scrollHeight;
+
+        sectionBounds = sections.map((sec) => {
+            const rect = sec.getBoundingClientRect();
+            return {
+                id: sec.id,
+                top: rect.top + scrollY,
+                bottom: rect.bottom + scrollY
+            };
+        });
+
+        if (workSec) {
+            const rect = workSec.getBoundingClientRect();
+            workTop = rect.top + scrollY;
+            workHeight = rect.height;
+        }
+    }
 
     function setActiveNav(targetId) {
+        if (activeNavId === targetId) return;
+        activeNavId = targetId;
         navLinks.forEach((link) => {
             const href = link.getAttribute('href');
             if (href === `#${targetId}`) {
@@ -185,7 +233,7 @@
 
                     clickTimeout = setTimeout(() => {
                         isClickScrolling = false;
-                        updateScrollSpy();
+                        onScrollTick();
                     }, 800);
                 }
             }
@@ -205,92 +253,13 @@
                 homeSection.scrollIntoView({ behavior: 'smooth' });
                 clickTimeout = setTimeout(() => {
                     isClickScrolling = false;
-                    updateScrollSpy();
+                    onScrollTick();
                 }, 800);
             }
         });
     }
 
-    function updateScrollSpy() {
-        if (isClickScrolling) return;
-
-        const scrollY = window.scrollY || document.documentElement.scrollTop;
-        const windowHeight = window.innerHeight;
-        const documentHeight = document.documentElement.scrollHeight;
-
-        // Top of page -> Home
-        if (scrollY < 180) {
-            setActiveNav('home');
-            return;
-        }
-
-        // Bottom of page -> Contact
-        if (scrollY + windowHeight >= documentHeight - 50) {
-            setActiveNav('contact');
-            return;
-        }
-
-        // Header reading line offset
-        const headerOffset = 120;
-        let currentId = 'home';
-
-        sections.forEach((section) => {
-            const rect = section.getBoundingClientRect();
-            if (rect.top <= headerOffset && rect.bottom > headerOffset) {
-                currentId = section.id;
-            }
-        });
-
-        setActiveNav(currentId);
-    }
-
-    window.addEventListener('scroll', updateScrollSpy, { passive: true });
-    updateScrollSpy();
-
-    /* ── 4. Parallax Scroll Tracking for Selected Work Title ── */
-    const workSec = document.getElementById('work');
-    const stickyTitle = document.querySelector('.sticky-work-title');
-    if (workSec && stickyTitle) {
-        window.addEventListener('scroll', () => {
-            const rect = workSec.getBoundingClientRect();
-            const totalDist = rect.height - window.innerHeight;
-            if (totalDist > 0 && rect.top <= 0 && rect.bottom >= window.innerHeight) {
-                const progress = Math.min(Math.max(-rect.top / totalDist, 0), 1);
-                stickyTitle.style.transform = `translateY(${-4 + progress * 8}vh) scale(${1 - progress * 0.04})`;
-                stickyTitle.style.opacity = `${0.95 - progress * 0.15}`;
-            } else if (rect.top > 0) {
-                stickyTitle.style.transform = 'translateY(-4vh) scale(1)';
-                stickyTitle.style.opacity = '0.95';
-            }
-        }, { passive: true });
-    }
-
-    /* ── 5. Auto Scroll Up Button & Progress Ring ── */
-    const scrollBtn = document.getElementById('scrollToTopBtn');
-    const progressCircle = document.getElementById('scrollProgressCircle');
-    const circumference = 2 * Math.PI * 20; // ~125.66
-
     if (scrollBtn) {
-        const updateScrollState = () => {
-            const scrollTop = window.scrollY || document.documentElement.scrollTop;
-            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-
-            if (scrollTop > 260) {
-                scrollBtn.classList.add('visible');
-            } else {
-                scrollBtn.classList.remove('visible');
-            }
-
-            if (progressCircle && docHeight > 0) {
-                const progress = Math.min(Math.max(scrollTop / docHeight, 0), 1);
-                const offset = circumference - (progress * circumference);
-                progressCircle.style.strokeDashoffset = offset;
-            }
-        };
-
-        window.addEventListener('scroll', updateScrollState, { passive: true });
-        updateScrollState();
-
         scrollBtn.addEventListener('click', () => {
             window.scrollTo({
                 top: 0,
@@ -298,4 +267,94 @@
             });
         });
     }
+
+    let scrollTicking = false;
+
+    function onScrollTick() {
+        scrollTicking = false;
+        const scrollY = window.scrollY || document.documentElement.scrollTop;
+
+        /* A. Pause background canvas when opaque sections (#work, #contact, footer) cover viewport */
+        if (typeof window.__setBgCanvasVisible === 'function' && workSec) {
+            window.__setBgCanvasVisible(scrollY < workTop);
+        }
+
+        /* B. Active Navigation Spy */
+        if (!isClickScrolling) {
+            if (scrollY < 180) {
+                setActiveNav('home');
+            } else if (scrollY + winH >= docH - 50) {
+                setActiveNav('contact');
+            } else {
+                const readingLine = scrollY + 120;
+                let currentId = 'home';
+                for (let i = 0; i < sectionBounds.length; i++) {
+                    const b = sectionBounds[i];
+                    if (b.top <= readingLine && b.bottom > readingLine) {
+                        currentId = b.id;
+                    }
+                }
+                setActiveNav(currentId);
+            }
+        }
+
+        /* C. Parallax Scroll Tracking for Selected Work Title (desktop only) */
+        if (workSec && stickyTitle && winW > 768) {
+            const relTop = workTop - scrollY;
+            const relBottom = relTop + workHeight;
+            const totalDist = workHeight - winH;
+
+            if (totalDist > 0 && relTop <= 0 && relBottom >= winH) {
+                const progress = Math.min(Math.max(-relTop / totalDist, 0), 1);
+                const ty = (-4 + progress * 8).toFixed(2);
+                const sc = (1 - progress * 0.04).toFixed(3);
+                const op = (0.95 - progress * 0.15).toFixed(3);
+                stickyTitle.style.transform = `translate3d(0, ${ty}vh, 0) scale(${sc})`;
+                stickyTitle.style.opacity = op;
+            } else if (relTop > 0) {
+                stickyTitle.style.transform = 'translate3d(0, -4vh, 0) scale(1)';
+                stickyTitle.style.opacity = '0.95';
+            }
+        }
+
+        /* D. Auto Scroll Up Button & Circular Progress Ring */
+        if (scrollBtn) {
+            const shouldShow = scrollY > 260;
+            if (shouldShow !== scrollBtnVisible) {
+                scrollBtnVisible = shouldShow;
+                scrollBtn.classList.toggle('visible', shouldShow);
+            }
+
+            const maxScroll = docH - winH;
+            if (progressCircle && maxScroll > 0 && shouldShow) {
+                const progress = Math.min(Math.max(scrollY / maxScroll, 0), 1);
+                const offset = (circumference - progress * circumference).toFixed(2);
+                progressCircle.style.strokeDashoffset = offset;
+            }
+        }
+    }
+
+    window.addEventListener('scroll', () => {
+        if (!scrollTicking) {
+            scrollTicking = true;
+            requestAnimationFrame(onScrollTick);
+        }
+    }, { passive: true });
+
+    let layoutResizeTimer = null;
+    window.addEventListener('resize', () => {
+        if (layoutResizeTimer) clearTimeout(layoutResizeTimer);
+        layoutResizeTimer = setTimeout(() => {
+            cacheLayoutMetrics();
+            onScrollTick();
+        }, 120);
+    }, { passive: true });
+
+    window.addEventListener('load', () => {
+        cacheLayoutMetrics();
+        onScrollTick();
+    }, { once: true });
+
+    cacheLayoutMetrics();
+    onScrollTick();
 })();
